@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Home</title>
+    <meta name="description" content="Home page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Internal CSS -->
+    <style>
+      /* Research preview section styling */
+      .research-preview {
+        padding: 60px 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .research-preview h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #000;
+      }
+
+      /* Individual research item card styling */
+      .research-item {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .research-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .research-item p {
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      /* Button styling for research section */
+      .research-preview .learn-more {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        padding: 8px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .research-preview .learn-more:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Main container for the entire page -->
+    <div class="container">
+      <!-- Navigation bar -->
+      <div class="navbar">
+        <div class="logo">
+          <!-- Logo with automatic hover effects every 3 seconds -->
+          <a
+            href="index.html"
+            id="logoLink"
+            style="transition: all 0.3s ease; display: inline-block"
+            onmouseover="this.style.transform='scale(1.1) rotate(2deg)'; this.style.filter='brightness(1.2)'"
+            onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.filter='brightness(1)'"
+            onload="setInterval(function() { 
+              var logo = document.getElementById('logoLink'); 
+              logo.style.transform='scale(1.1) rotate(2deg)'; 
+              logo.style.filter='brightness(1.2)'; 
+              setTimeout(function() { 
+                logo.style.transform='scale(1) rotate(0deg)'; 
+                logo.style.filter='brightness(1)'; 
+              }, 500); 
+            }, 3000);"
+          >
+            <img src="image/generatedtext.png" alt="Kingsmen Logo" />
+          </a>
+          <script>
+            setInterval(function() {
+              var logo = document.getElementById('logoLink');
+              logo.style.transform='scale(1.1) rotate(2deg)';
+              logo.style.filter='brightness(1.2)';
+              setTimeout(function() {
+                logo.style.transform='scale(1) rotate(0deg)';
+                logo.style.filter='brightness(1)';
+              }, 500);
+            }, 3000);
+          </script>
+        </div>
+        <!-- Main navigation menu -->
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero section with background video -->
+    <div class="video-background">
+      <video autoplay muted loop id="myVideo">
+        <source
+          src="video/0557102c9a0e44ae876db40e4c7592bd.HD-1080p-7.2Mbps-46519135.mp4"
+          type="video/mp4"
+        />
+      </video>
+      <!-- Hero text overlay -->
+      <section class="hero-text">
+        <h2>Would You Rock These At Your Next Big Event?</h2>
+      </section>
+    </div>
+
+    <!-- Featured products section -->
+    <div class="featured-products">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <!-- Product card 1 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/cheaney-lime-black-toe-cap-oxford-shoes-2.webp"
+              alt="Classic Black Oxford"
+            />
+          </div>
+          <h3>Classic Black Oxford</h3>
+          <p class="price"><s>Rs. 5000</s> Rs. 3999</p>
+          <p>
+            Elegant black oxford shoes with premium leather and cushioned
+            insoles.
+          </p>
+          <a href="product1.html" class="view-button">View Details</a>
+        </div>
+
+        <!-- Product card 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/BaseTransform1_a7f9edc1-e9c1-4739-8806-ad5e53710ac3.webp"
+              alt="Modern Loafers"
+            />
+          </div>
+          <h3>Modern Loafers</h3>
+          <p class="price"><s>Rs. 5000</s> Rs. 3999</p>
+          <p>
+            Contemporary design with traditional craftsmanship for everyday
+            elegance.
+          </p>
+          <a href="product2.html" class="view-button">View Details</a>
+        </div>
+
+        <!-- Product card 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/318-AJX02-1700-3500_008.webp"
+              alt="Premium Derby Shoes"
+            />
+          </div>
+          <h3>Premium Derby Shoes</h3>
+          <p class="price"><s>Rs. 5000</s> Rs. 3999</p>
+          <p>
+            Versatile derby shoes with advanced comfort technology and durable
+            soles.
+          </p>
+          <a href="product3.html" class="view-button">View Details</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog preview section -->
+    <div class="blog-preview">
+      <h2>From Our Blog</h2>
+      <div class="blog-item">
+        <h3>Technology in Footwear: Stepping into the Future</h3>
+        <p>
+          Modern footwear technology draws from centuries of innovation. We
+          began with simple handcrafting techniques and now have evolved into
+          sophisticated work combining traditional craftsmanship and advanced
+          technology.
+        </p>
+        <a href="blog.html" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- Research and innovation section -->
+    <div class="research-preview">
+      <h2>Design Research & Innovation</h2>
+      <div class="research-item">
+        <h3>Comparative Analysis & Design Methodology</h3>
+        <p>
+          Our research division conducts comprehensive comparative analysis
+          between leading footwear brands, studying design layouts, user
+          experience, and visual aesthetics to drive innovation in our products.
+        </p>
+        <p>
+          Through detailed research methodology and data-driven insights, we
+          continuously evolve our approach to footwear design, ensuring Kingsmen
+          stays at the forefront of industry excellence.
+        </p>
+        <a href="research.html" class="learn-more">Learn More</a>
+      </div>
+    </div>
+
+    <!-- About us preview section -->
+    <div class="about-preview">
+      <h2>About Kingsmen</h2>
+      <p>
+        Traditional craftsmanship with advanced technology to create footwear
+        that sets new standards in comfort, style, and durability.
+      </p>
+      <p>
+        At Kingsmen, we believe that exceptional footwear is the foundation of
+        confident steps. Our vision is to deliver footwear to our customers to
+        make their mark in the world.
+      </p>
+      <a href="aboutus.html" class="learn-more">Learn More</a>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+      <p>&copy; 2020 Kingsmen. All rights reserved.</p>
+      <p>
+        <a
+          href="/privacy-policy"
+          style="margin: 0 10px; color: white; text-decoration: none"
+          >Privacy Policy</a
+        >
+        |
+        <a
+          href="/terms"
+          style="margin: 0 10px; color: white; text-decoration: none"
+          >Terms of Service</a
+        >
+        |
+        <a
+          href="/contact"
+          style="margin: 0 10px; color: white; text-decoration: none"
+          >Contact</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>

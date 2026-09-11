@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riman Khamcha Thapa - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .profile-banner {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726, #42a5f5, #ab47bc);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        .profile-image:hover {
+            transform: rotateY(180deg);
+        }
+
+        .profile-card h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .profile-title {
+            font-size: 1.4rem;
+            color: #e74c3c;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .profile-description {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-container {
+            position: relative;
+            margin: 50px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #ff6b6b, #ffa726, #42a5f5, #ab47bc);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+            margin-left: 0;
+            text-align: right;
+            padding-right: 60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            text-align: left;
+            padding-left: 60px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: #ff6b6b;
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #ff6b6b;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .timeline-content h2 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+        }
+
+        .timeline-content li {
+            padding: 8px 0;
+            font-size: 1rem;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .timeline-content li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .back-container {
+            text-align: center;
+            padding: 60px 0;
+            background: #f8f9fa;
+            margin-top: 50px;
+        }
+
+        .back-button {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffa726, #42a5f5);
+            transition: left 0.5s ease;
+            z-index: 0;
+        }
+
+        .back-button:hover::before {
+            left: 0;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .back-button span {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-banner">
+        <div class="profile-card">
+            <img src="image/IMG-20240203-WA0001.jpg" alt="Riman Khamcha Thapa" class="profile-image">
+            <h1>Riman Khamcha Thapa</h1>
+            <div class="profile-title">E-commerce Manager</div>
+            <div class="profile-description">
+                <p>As the E-commerce manager of Kingsmen I am responsible for creating and executing strategies to maximize online sales, improve website performance, and enhance customer engagement.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Roles and Involvement</h2>
+                    <ul>
+                        <li>Website Management</li>
+                        <li>Digital Marketing</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Past Achievements</h2>
+                    <ul>
+                        <li>Enhanced Website User Experience</li>
+                        <li>Significant Growth in Online Sales</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Current Academic/Professional Status</h2>
+                    <ul>
+                        <li>Bachelor's Degree in Information Technology</li>
+                        <li>Certificate in Marketing</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h2>Hobbies</h2>
+                    <ul>
+                        <li>Video Games</li>
+                        <li>Reading</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-container">
+        <a href="aboutus.html" class="back-button">
+            <span>Back to About Us</span>
+        </a>
+    </div>
+</body>
+</html>

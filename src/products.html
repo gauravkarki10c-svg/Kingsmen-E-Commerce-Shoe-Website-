@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Products</title>
+    <meta name="description" content="Product page" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- Internal CSS -->
+    <style>
+      .products-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .products-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      /* Product grid layout */
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .product-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-image {
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 15px;
+      }
+
+      .product-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .product-price {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .star-rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .stars {
+        color: #000;
+        font-size: 16px;
+        margin-right: 8px;
+      }
+
+      .rating-text {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .product-description {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .view-btn {
+        display: inline-block;
+        background-color: #333;
+        color: white;
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      .view-btn:hover {
+        background-color: #555;
+      }
+      .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        width: 100%;
+      }
+
+      .hero-text h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+
+      /* Size chart styling */
+      .size-chart-container {
+        max-width: 1200px;
+        margin: 60px auto 40px auto;
+        padding: 0 20px;
+      }
+      
+      .chart-title {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+      }
+      
+      .size-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+      
+      .size-table th {
+        background: linear-gradient(135deg, #333, #555);
+        color: white;
+        padding: 15px 10px;
+        font-weight: bold;
+        text-align: center;
+      }
+      
+      .size-table td {
+        padding: 12px 10px;
+        text-align: center;
+        background: #fafafa;
+      }
+      
+      .size-table tr:nth-child(even) td {
+        background: #f0f0f0;
+      }
+      
+      .size-table tr:hover td {
+        background: #e8f4f8;
+        transition: background 0.3s ease;
+      }
+      
+      .product-name {
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+        padding-left: 15px;
+      }
+      
+      .size-value {
+        font-weight: 500;
+        color: #555;
+      }
+      
+      .table-note {
+        margin-top: 20px;
+        padding: 15px;
+        background: #fff3cd;
+        border-radius: 5px;
+        color: #856404;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main container -->
+    <div class="container">
+      <!-- Navigation bar -->
+      <div class="navbar">
+        <div class="logo">
+          <!-- Logo with hover effects -->
+          <a href="index.html" style="transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.transform='scale(1.1) rotate(2deg)'; this.style.filter='brightness(1.2)'" onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.filter='brightness(1)'">
+            <img src="image/generatedtext.png" alt="Kingsmen Logo" />
+          </a>
+        </div>
+        <!-- Navigation menu -->
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Video background section -->
+    <div class="video-background">
+      <video autoplay muted loop id="myVideo">
+        <source src="video/5120252-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+      </video>
+      <section class="hero-text">
+        <h2>Welcome to Our Product Page</h2>
+      </section>
+    </div>
+
+    <!-- Products section -->
+    <div class="products-container">
+      <div class="products-header">
+        <h1>Our Premium Collection</h1>
+        <p>
+          Discover footwear that combines traditional craftsmanship with
+          advanced technology
+        </p>
+      </div>
+
+      <!-- Product grid -->
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="image/cheaney-lime-black-toe-cap-oxford-shoes-2.webp" alt="Classic Black Oxford" />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Classic Black Oxford</h3>
+            <p class="product-price"><s>Rs. 5000</s> Rs. 3999</p>
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">(5.0)</span>
+            </div>
+            <p class="product-description">
+              Elegant black oxford shoes with premium leather and cushioned
+              insoles.
+            </p>
+            <a href="product1.html" class="view-btn">View Details</a>
+            <!-- Add to cart button with JavaScript alert -->
+            <button class="view-btn" style="margin-left: 10px;" 
+                    onclick="alert('Classic Black Oxford added to cart!')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/BaseTransform1_a7f9edc1-e9c1-4739-8806-ad5e53710ac3.webp"
+              alt="Modern Loafers"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Modern Loafers</h3>
+            <p class="product-price"><s>Rs. 5000</s> Rs. 3999</p>
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">(5.0)</span>
+            </div>
+            <p class="product-description">
+              Contemporary design with traditional craftsmanship for everyday
+              elegance.
+            </p>
+            <a href="product2.html" class="view-btn">View Details</a>
+            <button class="view-btn" style="margin-left: 10px;" 
+                    onclick="alert('Modern Loafers added to cart!')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/318-AJX02-1700-3500_008.webp"
+              alt="Premium Derby Shoes"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Premium Derby Shoes</h3>
+            <p class="product-price"><s>Rs. 5000</s> Rs. 3999</p>
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">(5.0)</span>
+            </div>
+            <p class="product-description">
+              Versatile derby shoes with advanced comfort technology and durable
+              soles.
+            </p>
+            <a href="product3.html" class="view-btn">View Details</a>
+            <button class="view-btn" style="margin-left: 10px;" 
+                    onclick="alert('Premium Derby Shoes added to cart!')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/brouges3.webp"
+              alt="Urban Sneakers"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Classic Brown Brogues</h3>
+            <p class="product-price"><s>Rs. 5000</s> Rs. 3999</p>
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">(5.0)</span>
+            </div>
+            <p class="product-description">
+             Classic brown brogues featuring decorative perforations and wingtip design.
+            </p>
+            <a href="product4.html" class="view-btn">View Details</a>
+            <button class="view-btn" style="margin-left: 10px;" 
+                    onclick="alert('Classic Brown Brogues added to cart!')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/WF-2100-BKT_Pair_Front_1024x1024.webp"
+              alt="Chelsea Boots"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Chelsea Boots</h3>
+            <p class="product-price"><s>Rs. 5000</s> Rs. 3999</p>
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">(5.0)</span>
+            </div>
+            <p class="product-description">
+              Stylish boots with elastic side panels and a comfortable insole.
+            </p>
+            <a href="product5.html" class="view-btn">View Details</a>
+            <button class="view-btn" style="margin-left: 10px;" 
+                    onclick="alert('Chelsea Boots added to cart!')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="image/monkstrap.jpg"
+              alt="Performance Runners"
+            />
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Monk Strap Shoes</h3>
+            <p class="product-price"><s>Rs. 5000</s> Rs. 3999</p>
+            <div class="star-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-text">(5.0)</span>
+            </div>
+            <p class="product-description">
+             Sophisticated black double buckle monk strap shoes made from premium leather.
+            </p>
+            <a href="product6.html" class="view-btn">View Details</a>
+            <button class="view-btn" style="margin-left: 10px;" 
+                    onclick="alert('Monk Strap Shoes added to cart!')">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Size chart section -->
+    <div class="size-chart-container">
+      <div class="chart-title">
+        <h2>Size Chart</h2>
+        <p>Available sizes for our premium footwear collection</p>
+      </div>
+      
+      <!-- Size chart table -->
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>US Sizes</th>
+            <th>UK Sizes</th>
+            <th>EU Sizes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="product-name">Classic Black Oxford</td>
+            <td class="size-value">7, 8, 9, 10, 11, 12</td>
+            <td class="size-value">6, 7, 8, 9, 10, 11</td>
+            <td class="size-value">40, 41, 42, 43, 44, 45</td>
+          </tr>
+          <tr>
+            <td class="product-name">Modern Loafers</td>
+            <td class="size-value">7, 8, 9, 10, 11, 12</td>
+            <td class="size-value">6, 7, 8, 9, 10, 11</td>
+            <td class="size-value">40, 41, 42, 43, 44, 45</td>
+          </tr>
+          <tr>
+            <td class="product-name">Premium Derby Shoes</td>
+            <td class="size-value">7, 8, 9, 10, 11, 12</td>
+            <td class="size-value">6, 7, 8, 9, 10, 11</td>
+            <td class="size-value">40, 41, 42, 43, 44, 45</td>
+          </tr>
+          <tr>
+            <td class="product-name">Classic Brown Brogues</td>
+            <td class="size-value">7, 8, 9, 10, 11, 12</td>
+            <td class="size-value">6, 7, 8, 9, 10, 11</td>
+            <td class="size-value">40, 41, 42, 43, 44, 45</td>
+          </tr>
+          <tr>
+            <td class="product-name">Chelsea Boots</td>
+            <td class="size-value">7, 8, 9, 10, 11, 12</td>
+            <td class="size-value">6, 7, 8, 9, 10, 11</td>
+            <td class="size-value">40, 41, 42, 43, 44, 45</td>
+          </tr>
+          <tr>
+            <td class="product-name">Monk Strap Shoes</td>
+            <td class="size-value">7, 8, 9, 10, 11, 12</td>
+            <td class="size-value">6, 7, 8, 9, 10, 11</td>
+            <td class="size-value">40, 41, 42, 43, 44, 45</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="table-note">
+        <strong>Note:</strong> All sizes are standard measurements. For the best fit, we recommend trying on the shoes or consulting our detailed size guide. Some products may have limited size availability.
+      </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+      <p>&copy; 2020 Kingsmen. All rights reserved.</p>
+      <p>
+    <a href="/privacy-policy" style="margin: 0 10px; color: white; text-decoration: none;">Privacy Policy</a> |
+    <a href="/terms" style="margin: 0 10px; color: white; text-decoration: none;">Terms of Service</a> |
+    <a href="/contact" style="margin: 0 10px; color: white; text-decoration: none;">Contact</a>
+  </p>
+    </footer>
+  </body>
+</html>
